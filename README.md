@@ -1,0 +1,1 @@
+Mix Razor WebApp project with Server-Side Blazor

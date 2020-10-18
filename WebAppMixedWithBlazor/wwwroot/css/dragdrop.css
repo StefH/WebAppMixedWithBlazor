@@ -1,0 +1,41 @@
+﻿.plk-dd-dropzone {
+    min-height: 40px;
+}
+
+.plk-dd-spacing {
+    height: 10px;
+}
+
+.plk-dd-spacing-dragged-over {
+    padding: 25px;
+}
+
+.plk-dd-dragged-over {
+    background-color: lightblue;
+    opacity: 0.6;
+    animation: blinker 1s linear infinite;
+}
+
+.plk-dd-dragged-over > div {
+    background-color: lightgray;
+    opacity: 0.6;
+    animation: blinker 1s linear infinite;
+}
+
+.plk-dd-in-transit {
+    opacity: 0.6;
+}
+
+.plk-dd-in-transit > div {
+    opacity: 0.6;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
