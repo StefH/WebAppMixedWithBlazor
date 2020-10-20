@@ -15,6 +15,7 @@ namespace WebAppMixedWithBlazor.Blazor.Components
         {
             var newSection = new SectionModel
             {
+                SectionType = SectionType.Section,
                 Title = "section title...",
                 Questions = new List<QuestionModel>
                 {
