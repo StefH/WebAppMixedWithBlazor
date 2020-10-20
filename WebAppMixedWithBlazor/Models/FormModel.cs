@@ -2,6 +2,9 @@
 
 namespace WebAppMixedWithBlazor.Models
 {
+    /// <summary>
+    /// form
+    /// </summary>
     public class FormModel
     {
         public string Name { get; set; }

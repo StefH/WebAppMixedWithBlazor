@@ -1,6 +1,6 @@
-﻿<b>Section</b>
-<div style="padding: 10px; border: 1px solid blue;">
-    <button @onclick="@(()=> OnRemoveClick.InvokeAsync(Model))" class="btn btn-secondary m-1">
+﻿<b>@Model.SectionType</b>
+<div style="padding: 10px; border: 1px solid @(Model.SectionType == SectionType.Section ? "blue" : "red");">
+    <button @onclick="@(()=> OnRemoveClick.InvokeAsync(Model))" class="btn btn-secondary btn-sm">
         <span class="oi oi-trash"></span>
     </button>
 
@@ -9,17 +9,20 @@
 
     <hr />
 
-    <button @onclick="AddSection" class="btn btn-success">Add (sub) Section</button>
+    @if (Model.SectionType == SectionType.Section)
+    {
+        <button @onclick="AddSection" class="btn btn-success btn-sm">Add (sub) Section</button>
 
-    <Dropzone Items="Model.Sections ?? new List<SectionModel>()">
-        <Section OnRemoveClick="(s)=>Model.Sections.Remove(s)" Model="@context"></Section>
-    </Dropzone>
+        <Dropzone Items="Model.Sections" DropzoneGroupId="sectionSectionsGroup">
+            <Section OnRemoveClick="(s) => Model.Sections.Remove(s)" Model="@context" SectionType="SectionType.SubSection"></Section>
+        </Dropzone>
+    }
 
-    <Dropzone Items="Model.Questions ?? new List<QuestionModel>()">
+    <Dropzone Items="Model.Questions" DropzoneGroupId="sectionQuestionsGroup" InstantReplace="true">
         <Question OnRemoveClick="(q)=>Model.Questions.Remove(q)" Model="@context"></Question>
     </Dropzone>
 
     <hr />
 
-    <button @onclick="AddQuestion" class="btn btn-success">Add Question</button>
+    <button @onclick="AddQuestion" class="btn btn-success btn-sm">Add Question</button>
 </div>

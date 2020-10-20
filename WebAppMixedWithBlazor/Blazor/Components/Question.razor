@@ -1,6 +1,6 @@
 ﻿<b>Question</b>
-<div style="padding: 10px; border: 1px solid blue;">
-    <button @onclick="@(()=> OnRemoveClick.InvokeAsync(Model))" class="btn btn-secondary m-1">
+<div style="padding: 10px; border: 1px solid green;">
+    <button @onclick="@(()=> OnRemoveClick.InvokeAsync(Model))" class="btn btn-secondary btn-sm">
         <span class="oi oi-trash"></span>
     </button>
 
@@ -8,7 +8,7 @@
     <input placeholder="What is???" @bind="Model.Text" />
 </div>
 
-@code {
+@code { 
     [Parameter]
     public QuestionModel Model { get; set; }
 

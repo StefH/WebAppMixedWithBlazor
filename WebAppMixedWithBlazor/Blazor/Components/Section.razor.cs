@@ -1,10 +1,14 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Components;
 using WebAppMixedWithBlazor.Models;
 
 namespace WebAppMixedWithBlazor.Blazor.Components
 {
     public partial class Section : ComponentBase
     {
+        [Parameter]
+        public SectionType SectionType { get; set; }
+
         [Parameter]
         public SectionModel Model { get; set; }
 
@@ -15,7 +19,15 @@ namespace WebAppMixedWithBlazor.Blazor.Components
         {
             var newSection = new SectionModel
             {
-                Title = "section title..."
+                SectionType = SectionType.SubSection,
+                Title = "section title...",
+                Questions = new List<QuestionModel>
+                {
+                    new QuestionModel
+                    {
+                        Text = "place holder question 1..."
+                    }
+                }
             };
 
             Model.Sections.Add(newSection);
